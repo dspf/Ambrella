@@ -1,0 +1,33 @@
+﻿@* @model University
+
+<form method="post" enctype="multipart/form-data" asp-action="Create">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="test-primary">University Details</h2>
+            <hr />
+            <div class="mb-3 row">
+                <label asp-for="Name" class="p-0"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="Description" class="p-0"></label>
+                <input asp-for="Description" class="form-control" />
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="Province" class="p-0"></label>
+                <input asp-for="Province" class="form-control" />
+            </div>
+          
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-outline-dark form-control">Create</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="University" asp-action="Index" class="btn btn-outline-secondary form-control">University Details</a>
+            </div>
+        </div>
+    </div>
+</form>
+ *@

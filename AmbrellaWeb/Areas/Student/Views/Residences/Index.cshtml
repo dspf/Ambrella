@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Ambrella.Models.Building>
+
+<div class="container-fluid" style="background-color: #F5F5DC; padding: 2rem;">
+    <h2 class="text-center mb-4" style="font-family: 'Georgia', serif; color: #8B008B;">Buildings</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" style="background-color: #FFF; border-color: #DA70D6;">
+            <thead style="background-color: #8B008B; color: #FFF;">
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>Landlord</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var building in Model)
+                {
+                    <tr style="transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#FAEBD7';" onmouseout="this.style.backgroundColor='#FFF';">
+                        <td>@building.Name</td>
+                        <td>@building.Location</td>
+                        <td>@building.Address</td>
+                        <td>@building.Landlord.UserName</td>
+                        <td>
+                            <form asp-controller="Residences" asp-action="SubmitApplication" method="post">
+                                <input type="hidden" name="buildingId" value="@building.BuildingId" />
+                                <button type="submit" class="btn btn-primary" style="background-color: #8B008B; border-color: #8B008B; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#DA70D6';" onmouseout="this.style.backgroundColor='#8B008B';">Schedule</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

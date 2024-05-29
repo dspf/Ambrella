@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SendReportCompanyInspector>
+
+<h2>Pending Applications</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Landlord</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var application in Model)
+        {
+            <tr>
+                <td>@application.CompanyInspectionReport.CompanyName</td>
+                <td>@application.Inspector.UserName</td>
+                <td>
+                    <form asp-action="ApproveApplication" asp-route-id="@application.SendReportCompanyInspectorId" method="post">
+                        <button type="submit">Approve</button>
+                    </form>
+                    <form asp-action="RejectApplication" asp-route-id="@application.SendReportCompanyInspectorId" method="post">
+                        <button type="submit">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

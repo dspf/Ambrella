@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Application Submitted";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid d-flex align-items-center justify-content-center" style="min-height: 80vh; background-color: #F8F9FA;">
+    <div class="text-center" style="background-color: #FFF; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-family: 'Georgia', serif; color: #4B0082;">Application Submitted</h2>
+        <p class="mt-3" style="font-size: 1.2rem; color: #333;">Your application has been submitted successfully.</p>
+        <div class="mt-4">
+            <a href="/" class="btn btn-primary" style="background-color: #4B0082; border-color: #4B0082;">Return to Home</a>
+            <a href="/applications" class="btn btn-outline-secondary ml-2">View My Applications</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    @@media (max-width: 768px) {
+        .container-fluid {
+            padding: 1rem;
+        }
+        .text-center {
+            padding: 1.5rem;
+        }
+    }
+</style>

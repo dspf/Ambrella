@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Ambrella.Models.Building>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Submit Application</h2>
+    <div class="table-responsive bg-light rounded shadow">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Building Name</th>
+                    <th>Location</th>
+                    <th>Capacity</th>
+                    <th>Cost</th>
+                    <th>Submit Application</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var building in Model)
+                {
+                    <tr>
+                        <td>@building.Name</td>
+                        <td>@building.Location</td>
+                        <td>@building.Capacity</td>
+                        <td>@building.Cost</td>
+                        <td>
+                            <form asp-controller="Landlord" asp-action="SubmitApplication" method="post" class="form-inline">
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <select class="form-control" name="institutionId">
+                                        <option value="" disabled selected>Select Institution</option>
+                                        @foreach (var university in ViewBag.Universities)
+                                        {
+                                            <option value="@university.Id">@university.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                                <input type="hidden" name="buildingId" value="@building.BuildingId" />
+                                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Building>
+
+<div class="container-fluid" style="background-color: #F0F8FF; padding: 2rem;">
+    <h2 class="text-center mb-4" style="font-family: 'Georgia', serif; color: #4B0082;">Submit Application to Institution</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card" style="border-color: #BA55D3; transition: box-shadow 0.3s ease;" onmouseover="this.style.boxShadow='0 0 10px rgba(0,0,0,0.3)';" onmouseout="this.style.boxShadow='none';">
+                <div class="card-body">
+                    <form asp-controller="Residences" asp-action="SendApplication" method="post">
+                        <div class="form-group">
+                            <label for="building" style="font-weight: bold; color: #4B0082;">Building:</label>
+                            <select class="form-control" id="building" name="buildingId" style="border-color: #BA55D3; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='#4B0082';" onmouseout="this.style.borderColor='#BA55D3';">
+                                @foreach (var institution in ViewBag.Buildings as List<Building>)
+                                {
+                                    <option value="@institution.BuildingId">
+                                        @institution.Name
+                                        (@institution.Location, @institution.Address)
+                                    </option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="institution" style="font-weight: bold; color: #4B0082;">Institution:</label>
+                            <select class="form-control" id="institution" name="institutionId" style="border-color: #BA55D3; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='#4B0082';" onmouseout="this.style.borderColor='#BA55D3';">
+                                @foreach (var institution in ViewBag.Universities)
+                                {
+                                    <option value="@institution.Id">@institution.Name</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" style="background-color: #4B0082; border-color: #4B0082; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#DA70D6';" onmouseout="this.style.backgroundColor='#4B0082';">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<InstitutionAssign>
+
+<style>
+    /* Table styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color: #c9f0d1; /* Mint background for the table */
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #a3e4b7; /* Light mint background for table header */
+        color: #fff; /* White text for table header */
+    }
+
+    tr:nth-child(even) {
+        background-color: #eaf7ea; /* Alternate row background color */
+    }
+
+    /* Button styles */
+    button[type="submit"] {
+        background-color: #55c57a; /* Mint button color */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #3d8c54; /* Darker mint color on hover */
+        }
+</style>
+
+<h2>Pending Assignments</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Building Name</th>
+            <th>Location</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var application in Model)
+        {
+            <tr>
+                <td>@application.Building.Name</td>
+                <td>@application.Building.Location</td>
+                <td>@application.Building.Address</td>
+                <td>
+                    <form asp-action="InstitutionApproveApplication" asp-route-id="@application.InstitutionAssignId" method="post">
+                        <button type="submit">Acknowledge</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

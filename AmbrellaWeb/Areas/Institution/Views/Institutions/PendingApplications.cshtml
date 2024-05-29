@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ApplicationBuilding>
+
+<div class="container my-5">
+    <div class="table-responsive bg-dark text-light p-4 rounded">
+        <h2 class="text-center mb-4">Pending Applications</h2>
+        <table class="table table-hover table-bordered table-striped-columns">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Building Name</th>
+                    <th>Location</th>
+                    <th>Capacity</th>
+                    <th>Cost</th>
+                    <th>Landlord</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var application in Model)
+                {
+                    <tr>
+                        <td>@application.Building.Name</td>
+                        <td>@application.Building.Location</td>
+                        <td>@application.Building.Capacity</td>
+                        <td>@application.Building.Cost</td>
+                        
+                        <td>@application.Landlord.UserName</td>
+                        <td>
+                            <div class="btn-group">
+                                <form asp-action="ApproveApplication" asp-route-id="@application.ApplicationBuildingId" method="post">
+                                    <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                                </form>
+                                <form asp-action="RejectApplication" asp-route-id="@application.ApplicationBuildingId" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

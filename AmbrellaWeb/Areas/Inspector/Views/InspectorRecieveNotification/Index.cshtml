@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Ambrella.Models.InspectorRecieveNotification>
+
+<style>
+    /* Table styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color: #000; /* Black background */
+        color: #fff; /* White text */
+    }
+
+    th, td {
+        border: 1px solid #fff; /* White border */
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #333; /* Dark gray background for table header */
+    }
+
+    tr:nth-child(even) {
+        background-color: #222; /* Darker gray alternate row background color */
+    }
+</style>
+
+<h1>Notifications</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Message</th>
+            <th>Created At</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var notification in Model)
+        {
+            <tr>
+                <td>@notification.Message</td>
+                <td>@notification.CreatedAt.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>

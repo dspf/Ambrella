@@ -1,0 +1,154 @@
+﻿@model CompanyInspectionReport
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inspection Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            min-height: 100vh; /* Set a minimum height for the body */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container {
+            background-color: #000;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+            flex: 1; /* Allow the form container to grow */
+        }
+
+            .form-container:hover {
+                transform: scale(1.02);
+            }
+
+        .form-control {
+            background-color: #333;
+            color: #fff;
+            border: none;
+        }
+
+            .form-control:focus {
+                background-color: #444;
+                color: #fff;
+                box-shadow: none;
+            }
+
+        .btn-outline-dark {
+            color: #fff;
+            border-color: #fff;
+        }
+
+            .btn-outline-dark:hover {
+                background-color: #fff;
+                color: #000;
+            }
+
+        .btn-outline-secondary {
+            color: #ccc;
+            border-color: #ccc;
+        }
+
+            .btn-outline-secondary:hover {
+                background-color: #ccc;
+                color: #000;
+            }
+    </style>
+</head>
+<body>
+    <div class="container d-flex flex-column">
+        <div class="form-container">
+            <form method="post" enctype="multipart/form-data" asp-action="Create">
+                <div class="row pb-2">
+                    <h2 class="text-white">Inspection Details</h2>
+                    <hr />
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="CompanyName" class="form-label"></label>
+                            <input asp-for="CompanyName" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="CompanyAddress" class="form-label"></label>
+                            <input asp-for="CompanyAddress" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="CompanyLocation" class="form-label"></label>
+                            <input asp-for="CompanyLocation" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NumberOfBuildings" class="form-label"></label>
+                            <input asp-for="NumberOfBuildings" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="IsCompanyVerified" class="form-label"></label>
+                            <input asp-for="IsCompanyVerified" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="CompanyRegistrationNumber" class="form-label"></label>
+                            <input asp-for="CompanyRegistrationNumber" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="InspectorNotes" class="form-label"></label>
+                            <input asp-for="InspectorNotes" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="InspectionDate" class="form-label"></label>
+                            <input asp-for="InspectionDate" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="FirstBuilding" class="form-label"></label>
+                            <input asp-for="FirstBuilding" type="file" class="form-control" accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Second Building:</label>
+                            <input type="file" name="SecondBuilding" class="form-control" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Third Building:</label>
+                            <input type="file" name="ThirdBuilding" class="form-control" accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Fourth Building:</label>
+                            <input type="file" name="FourthBuilding" class="form-control" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-outline-dark form-control">Create</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Building" asp-action="Index" class="btn btn-outline-secondary form-control">Building List</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

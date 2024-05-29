@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbrellaWeb", "AmbrellaWeb\AmbrellaWeb.csproj", "{993D00A4-9392-462B-901A-9172A0CB6A31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ambrella.Models", "Ambrella.Models\Ambrella.Models.csproj", "{5DBC080B-F4FF-473C-AB23-CC6667D8F5E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ambrella.DataAccess", "Ambrella.DataAccess\Ambrella.DataAccess.csproj", "{7624AF64-5CFC-47C6-A85F-1A4E4A2FE062}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ambrella.Utility", "Ambrella.Utility\Ambrella.Utility.csproj", "{8F300AC7-0FE2-427A-AB7A-84679A0FE234}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{993D00A4-9392-462B-901A-9172A0CB6A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993D00A4-9392-462B-901A-9172A0CB6A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993D00A4-9392-462B-901A-9172A0CB6A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993D00A4-9392-462B-901A-9172A0CB6A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DBC080B-F4FF-473C-AB23-CC6667D8F5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DBC080B-F4FF-473C-AB23-CC6667D8F5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DBC080B-F4FF-473C-AB23-CC6667D8F5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DBC080B-F4FF-473C-AB23-CC6667D8F5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7624AF64-5CFC-47C6-A85F-1A4E4A2FE062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7624AF64-5CFC-47C6-A85F-1A4E4A2FE062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7624AF64-5CFC-47C6-A85F-1A4E4A2FE062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7624AF64-5CFC-47C6-A85F-1A4E4A2FE062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F300AC7-0FE2-427A-AB7A-84679A0FE234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F300AC7-0FE2-427A-AB7A-84679A0FE234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F300AC7-0FE2-427A-AB7A-84679A0FE234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F300AC7-0FE2-427A-AB7A-84679A0FE234}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FF27FD3-49C8-4CF9-A5DD-15E808F92B3A}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ambrella.Models.Contract>
+
+<div class="container-fluid" style="background-color: #FFFACD; padding: 2rem;">
+    <h2 class="text-center mb-4" style="font-family: 'Georgia', serif; color: #8B4513;">Send Contract</h2>
+
+    <form asp-controller="Contracts" asp-action="Send" method="post">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" style="background-color: #FFF; border-color: #DEB887;">
+                <thead style="background-color: #8B4513; color: #FFF;">
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Created At</th>
+                        <th>Recipient</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var contract in Model)
+                    {
+                        <tr style="transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#F5DEB3';" onmouseout="this.style.backgroundColor='#FFF';">
+                            <td>@contract.Title</td>
+                            <td>@contract.Description</td>
+                            <td>@contract.CreatedAt.ToString("MMM dd, yyyy")</td>
+                            <td>
+                                <select name="selectedLandlords\[@contract.ContractId\]" asp-items="@ViewBag.LandlordUsers" class="form-control" style="border-color: #DEB887; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='#8B4513';" onmouseout="this.style.borderColor='#DEB887';">
+                                    <option value="">Select Landlord</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="hidden" name="contractIds" value="@contract.ContractId" />
+                                <button type="submit" class="btn btn-primary" style="background-color: #8B4513; border-color: #8B4513; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#6B3900';" onmouseout="this.style.backgroundColor='#8B4513';">Send</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Company>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Application</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: url('https://hotels1.cdn.iberostar.com/uploads/image/32771/crops/1:1/image.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .form-header {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 form-container">
+                <h2 class="form-header text-center">Submit Application</h2>
+                <form asp-controller="CApplication" asp-action="SubmitApplication" method="post">
+                    <div class="form-group">
+                        <label for="company">Select Company:</label>
+                        <select class="form-control" id="company" name="companyId">
+                            @foreach (var company in ViewBag.Companies as List<Company>)
+                            {
+                                <option value="@company.Id">@company.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberOfProperties">Number Of Properties:</label>
+                        <select class="form-control" id="numberOfProperties" name="numberOfProperties">
+                            @foreach (var company in ViewBag.Companies as List<Company>)
+                            {
+                                <option value="@company.NumberOfProperties">@company.NumberOfProperties</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <select class="form-control" id="address" name="address">
+                            @foreach (var company in ViewBag.Companies as List<Company>)
+                            {
+                                <option value="@company.Address">@company.Address</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin">Ambrella Admin:</label>
+                        <select class="form-control" id="admin" name="adminId">
+                            @foreach (var admin in ViewBag.Administrator)
+                            {
+                                <option value="@admin.Id">@admin.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

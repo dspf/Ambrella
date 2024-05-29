@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Ambrella.Models.StudentNotification>
+
+@{
+    ViewData["Title"] = "Notifications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid" style="padding: 2rem;">
+    <h1 class="text-center mb-4" style="font-family: 'Georgia', serif; color: #4B0082;">@ViewData["Title"]</h1>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped" style="background-color: #FFF; border-color: #4B0082;">
+            <thead style="background-color: #4B0082; color: #FFF;">
+                <tr>
+                    <th scope="col">Message</th>
+                    <th scope="col">Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var notification in Model)
+                {
+                    <tr style="transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#E6E6FA';" onmouseout="this.style.backgroundColor='#FFF';">
+                        <td>@notification.Message</td>
+                        <td>@notification.CreatedAt.ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .table-hover tbody tr:hover {
+        background-color: #E6E6FA !important;
+    }
+</style>

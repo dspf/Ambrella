@@ -1,0 +1,128 @@
+﻿@* 
+
+
+@model IEnumerable<Ambrella.Models.ApplicationBuilding>
+
+<h2>Assign Inspector</h2>
+
+<form asp-controller="Inspections" asp-action="Assign" method="post">
+    <div class="form-group">
+        <label for="building">Select Property:</label>
+        <select class="form-control" id="building" name="buildingId">
+            @foreach (var building in Model)
+            {
+                <option value="@building.BuildingId">@building.Building.Name</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label>Select Inspector:</label>
+        <select class="form-control" id="inspector" name="inspectorId">
+            @foreach (var inspector in ViewBag.Inspector)
+            {
+                <option value="@inspector.Id">@inspector.Name</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit">Assign Inspector</button>
+</form>
+ *@
+
+ @model IEnumerable<Ambrella.Models.ApplicationBuilding>
+
+<style>
+
+  
+
+
+    /* Card styles */
+    .card {
+        background-color: #333; /* Dark background */
+        color: #fff; /* White text */
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: calc(100% - 40px);
+        max-width: 500px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    /* Form styles */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+        color: #333;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+        color: #333;
+    }
+</style>
+
+ <div class="card">
+    <h2>Assign Inspector</h2>
+    <form asp-controller="Inspections" asp-action="Assign" method="post">
+        <div class="form-group">
+            <label for="building">Select Property:</label>
+            <select class="form-control" id="building" name="buildingId">
+                @foreach (var building in Model)
+                {
+                    <option value="@building.BuildingId">@building.Building.Name - @building.Building.Location, @building.Building.Address</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="scheduledDate">Scheduled Date:</label>
+            <input type="date" class="form-control" id="scheduledDate" name="scheduledDate">
+        </div>
+
+        <div class="form-group">
+            <label for="inspector">Select Inspector:</label>
+            <select class="form-control" id="inspector" name="inspectorId">
+                @foreach (var inspector in ViewBag.Inspector)
+                {
+                    <option value="@inspector.Id">@inspector.Name</option>
+                }
+            </select>
+        </div>
+
+        <button type="submit">Assign Inspector</button>
+    </form>
+ </div>

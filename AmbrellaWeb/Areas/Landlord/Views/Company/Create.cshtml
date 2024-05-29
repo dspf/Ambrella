@@ -1,0 +1,41 @@
+﻿@model Company
+
+<form method="post" enctype="multipart/form-data" asp-action="Create">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="test-primary">Company Details</h2>
+            <hr />
+            <div class="mb-3 row">
+                <label asp-for="Name" class="p-0"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="NumberOfProperties" class="p-0"></label>
+                <input asp-for="NumberOfProperties" class="form-control" />
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="Location" class="p-0"></label>
+                <input asp-for="Location" class="form-control" />
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="Address" class="p-0"></label>
+                <input asp-for="Address" class="form-control" />
+            </div>
+          
+            <div class="mb-3 row">
+                <label asp-for="HeadQuarterImg" class="p-0"></label>
+                <input asp-for="HeadQuarterImg" type="file" class="form-control" accept="image/*" />
+            </div>
+          
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-outline-dark form-control">Create</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Company" asp-action="Index" class="btn btn-outline-secondary form-control">Companty List</a>
+            </div>
+        </div>
+    </div>
+</form>
